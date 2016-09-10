@@ -10,7 +10,7 @@ import os # needed to create CSV directory
 
 # Setup
 csv_directory = "../data"
-csv_filename = "agentes-animacao"
+csv_filename = "agentes-animacao-turistica"
 
 # Strings to ASCII function for districts
 def string_simplify(string):
