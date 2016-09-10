@@ -29,7 +29,7 @@ base_url = 'https://rnt.turismodeportugal.pt/RNAL/ConsultaAoRegisto.aspx'
 
 
 # Print information
-print "Getting all the local tourism properties CSVs in Portugal."
+print "Getting all the local tourism properties CSVs in Portugal..."
 print "Usually takes ~9 minutes to donwload all."
 print
 
