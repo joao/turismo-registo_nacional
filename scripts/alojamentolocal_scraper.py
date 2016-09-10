@@ -9,7 +9,7 @@ import datetime
 import os # needed to create CSV directory
 
 # Setup
-csv_directory = "csv"
+csv_directory = "../data"
 csv_filename = "alojamento-local"
 
 # Strings to ASCII function for districts
