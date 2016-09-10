@@ -74,9 +74,6 @@ csv_download_data = {
 # Export CSV
 print "Downloading CSV..."
 browser.open(csv_url, method='post', data=csv_download_data)
-print str(browser.parsed)
-sys.exit();
-
 
 # Write CSV file
 print "Saving CSV..."
