@@ -23,7 +23,7 @@ csv_url = 'https://rnt.turismodeportugal.pt/RNAVT/ConsultaAoRegisto.aspx' # They
 
 
 # Print information
-print "Getting all the local travel and tourism agencies properties CSVs in Portugal..."
+print "Getting all the local travel and tourism agencies properties CSV in Portugal..."
 print
 
  # Create CSV directory
@@ -63,13 +63,13 @@ csv_download_data = {
   "wtNUTIII": "__ossli_0",
 }
 
-# Request specific district
+# Export CSV
 print "Downloading CSV..."
 browser.open(csv_url, method='post', data=csv_download_data)
 
 
 
-# Write CSV files
+# Write CSV file
 print "Saving CSV..."
 file = open(csv_directory + "/" + csv_filename + ".csv", "wb")
 cleaned_csv = str(browser.parsed).split("<html><body><p>", 1)[1].split("</p></body></html>", 1)[0]
