@@ -6,6 +6,11 @@ import time
 import sys # sys.exit() to stop the script for debugging
 from unidecode import unidecode
 import datetime
+import os # needed to create CSV directory
+
+# Setup
+csv_directory = "csv"
+csv_filename = "alojamento-local"
 
 # Strings to ASCII function for districts
 def string_simplify(string):
@@ -28,8 +33,13 @@ print "Getting all the local tourism properties CSVs in Portugal."
 print "Usually takes ~9 minutes to donwload all."
 print
 
+ # Create CSV directory
+if not os.path.exists(csv_directory):
+  os.makedirs(csv_directory)
+
+
 # Setup the CSV file with all the districts
-file_CSV_districts = open("alojamento-local_" + today + ".csv", "wb")
+file_CSV_districts = open(csv_directory + "/" + csv_filename + "_" + today + ".csv", "wb")
 file_CSV_districts.write('"numero_de_registo";"data_do_registo";"nome_do_alojamento";"modalidade";"numero_de_camas";"numero_utentes";"endereco";"codigo_postal";"localidade";"freguesia";"concelho";"distrito";"nome_titular_exploracao";"contribuinte";"telefone";"fax";"telemovel";"email"\n')
 file_CSV_districts.close()
 
@@ -68,12 +78,15 @@ print str(len(districts)) + " districts in Portugal."
   #print string_simplify(key) + ': ' + value
 #print ""
 
+# Keep tabs of how many districts have already been sorted
+district_number = 0
 
 for key, value in sorted(districts.iteritems()):
   "Iterate over all the districts"
   selected_district = string_simplify(key)
   selected_district_option_id = value
-  print key + '...'
+  district_number += 1
+  print str(district_number) + '. ' + string_simplify(key).title() + '...'
   
   # Form data
   district_form_data = {
@@ -126,14 +139,15 @@ for key, value in sorted(districts.iteritems()):
   # Request CSV
   browser.open(base_url, method='post', data=csv_form_data)
 
-  # Write to file
-  file = open(selected_district + "_alojamento-local_" + today + ".csv", "wb")
+ 
+   # Write CSV files
+  file = open(csv_directory + "/" + selected_district + "_" + csv_filename + "_" + today + ".csv", "wb")
   district_csv = str(browser.parsed).split("<html><body><p>", 1)[1].split("</p></body></html>", 1)[0]
   file.write( replace_csv_header(district_csv) )
   file.close()
 
   # Append to the all the districts CSV file
-  file_CSV_districts = open("alojamento-local_" + today + ".csv", "a")
+  file_CSV_districts = open(csv_directory + "/" + csv_filename + "_" + today + ".csv", "a")
   file_CSV_districts.write( district_csv[district_csv.find('\n')+1:district_csv.rfind('\n')] )
   file_CSV_districts.close()
 
