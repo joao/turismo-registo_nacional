@@ -39,7 +39,7 @@ if not os.path.exists(csv_directory):
 
 
 # Setup the CSV file with all the districts
-file_CSV_districts = open(csv_directory + "/" + csv_filename + "_" + today + ".csv", "wb")
+file_CSV_districts = open(csv_directory + "/" + csv_filename + "_" + ".csv", "wb")
 file_CSV_districts.write('"numero_de_registo";"data_do_registo";"nome_do_alojamento";"modalidade";"numero_de_camas";"numero_utentes";"endereco";"codigo_postal";"localidade";"freguesia";"concelho";"distrito";"nome_titular_exploracao";"contribuinte";"telefone";"fax";"telemovel";"email"\n')
 file_CSV_districts.close()
 
@@ -141,13 +141,13 @@ for key, value in sorted(districts.iteritems()):
 
  
    # Write CSV files
-  file = open(csv_directory + "/" + selected_district + "_" + csv_filename + "_" + today + ".csv", "wb")
+  file = open(csv_directory + "/" + selected_district + "_" + csv_filename + ".csv", "wb")
   district_csv = str(browser.parsed).split("<html><body><p>", 1)[1].split("</p></body></html>", 1)[0]
   file.write( replace_csv_header(district_csv) )
   file.close()
 
   # Append to the all the districts CSV file
-  file_CSV_districts = open(csv_directory + "/" + csv_filename + "_" + today + ".csv", "a")
+  file_CSV_districts = open(csv_directory + "/" + csv_filename + "_" + ".csv", "a")
   file_CSV_districts.write( district_csv[district_csv.find('\n')+1:district_csv.rfind('\n')] )
   file_CSV_districts.close()
 
