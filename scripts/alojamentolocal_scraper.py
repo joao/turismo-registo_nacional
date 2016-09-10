@@ -44,7 +44,7 @@ file_CSV_districts.write('"numero_de_registo";"data_do_registo";"nome_do_alojame
 file_CSV_districts.close()
 
 # Browse to RNT - Registo Nacional de Turismo
-browser = RoboBrowser(history=True)
+browser = RoboBrowser(history=True,parser="lxml")
 browser.open(base_url + '?Origem=CP&FiltroVisivel=True')
 
 # Select Districts Labels and Option IDs
