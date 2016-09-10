@@ -1,0 +1,2 @@
+robobrowser==0.5.3
+Unidecode==0.4.19
