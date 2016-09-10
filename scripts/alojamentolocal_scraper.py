@@ -39,7 +39,7 @@ if not os.path.exists(csv_directory):
 
 
 # Setup the CSV file with all the districts
-file_CSV_districts = open(csv_directory + "/" + csv_filename + "_" + ".csv", "wb")
+file_CSV_districts = open(csv_directory + "/" + csv_filename + ".csv", "wb")
 file_CSV_districts.write('"numero_de_registo";"data_do_registo";"nome_do_alojamento";"modalidade";"numero_de_camas";"numero_utentes";"endereco";"codigo_postal";"localidade";"freguesia";"concelho";"distrito";"nome_titular_exploracao";"contribuinte";"telefone";"fax";"telemovel";"email"\n')
 file_CSV_districts.close()
 
