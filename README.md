@@ -1,4 +1,4 @@
-# rede-nacional-turismo
+# turismo_registo_nacional
 Empreendimentos e empresas do turismo em operação
 
 Contém os seguintes items:
