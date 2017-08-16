@@ -46,7 +46,7 @@ OSVSTATE = page_forms['__OSVSTATE'].value
   
 # AJAX data to download CSV
 csv_download_data = {
-  "__EVENTTARGET": "wt160",
+  "__EVENTTARGET": "wt49",
   "__EVENTARGUMENT": "",
   "__OSVSTATE": OSVSTATE,
   "__VIEWSTATE": "",

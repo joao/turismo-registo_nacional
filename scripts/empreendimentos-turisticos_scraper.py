@@ -19,11 +19,11 @@ def string_simplify(string):
 
 
 base_url = 'https://rnt.turismodeportugal.pt/RNET/Registos.ConsultaRegisto.aspx'
-
+csv_url = 'https://rnt.turismodeportugal.pt/RNET/Registos.ConsultaRegisto.aspx' # They have 'Ao' in between the URLs
 
 
 # Print information
-print "Getting all the local tourism properties CSV in Portugal..."
+print "Getting all the local tourism enterprises CSV in Portugal..."
 print
 
  # Create CSV directory
@@ -42,141 +42,71 @@ browser.open(base_url)
 page_forms = browser.get_form(id='WebForm1')
 OSVSTATE = page_forms['__OSVSTATE'].value
 
-  
-# AJAX search data for all types of properties
-search_data = {
-  "__EVENTTARGET": "wtbtnSearch",
-  "__EVENTARGUMENT": "",
-  "__OSVSTATE": OSVSTATE,
-  "__VIEWSTATE": "",
-  "wt123": "off",
-  "wt255": "off",
-  "wt192": "off",
-  "wt349": "off",
-  "wt204": "off",
-  "wt30": "off",
-  "wt233": "off",
-  "wt345": "off",
-  "wt147": "off",
-  "wt244": "off",
-  "wt248": "off",
-  "wt262": "off",
-  "wt164": "off",
-  "wt35": "off",
-  "wt101": "off",
-  "wt107": "off",
-  "wt110": "off",
-  "wt143": "off",
-  "wt202": "off",
-  "wt84": "off",
-  "wt184": "off",
-  "wt37": "off",
-  "wt332": "off",
-  "wt166": "off",
-  "wt185": "off",
-  "__VIEWSTATEGENERATOR": "9963D09B",
-  "wtData": "",
-  "wtSearchInput2": "",
-  "wt77": "",
-  "wt92": "",
-  "wt151": "",
-  "wt126": "",
-  "wtERT": "__ossli_0",
-  "wtDistrito": "__ossli_0",
-  "wtConcelho": "__ossli_0",
-  "wtNUTII": "__ossli_0",
-  "wtNUTIII": "__ossli_0",
-  "wt264": "on",
-  "wt343": "on",
-  "wt206": "on",
-  "wt223": "on",
-  "wt17": "on",
-  "wt125": "on",
-  "wt313": "on",
-  "wt176": "on",
-  "wt179": "on",
-  "wt373": "on",
-  "wt252": "on",
-  "wt127": "on",
-  "wt396": "on",
-  "wt60": "on",
-  "wt62": "on",
-  "wt269": "on",
-  "wt208": "on",
-  "-668772924": "True",
-  "_AJAX": "1151,824,wtbtnSearch,723,44,123,0,87,727,"
-}
-
-# Search every type of tourism property
-print "Searching..."
-browser.open(base_url, method='post', data=search_data)
-
-# AJAX CSV download data
+# AJAX data to download CSV
 csv_download_data = {
-  "__EVENTTARGET": "wt243",
+  "__EVENTTARGET": "wt79",
   "__EVENTARGUMENT": "",
   "__OSVSTATE": OSVSTATE,
   "__VIEWSTATE": "",
-  "wt123": "off",
-  "wt255": "off",
-  "wt192": "off",
-  "wt349": "off",
-  "wt204": "off",
-  "wt30": "off",
-  "wt233": "off",
-  "wt345": "off",
-  "wt147": "off",
-  "wt244": "off",
-  "wt248": "off",
-  "wt262": "off",
-  "wt164": "off",
-  "wt35": "off",
-  "wt101": "off",
-  "wt107": "off",
-  "wt110": "off",
-  "wt143": "off",
-  "wt202": "off",
-  "wt84": "off",
-  "wt184": "off",
-  "wt37": "off",
-  "wt332": "off",
-  "wt166": "off",
-  "wt185": "off",
+  "__VIEWSTATE": "",
+  "wt307": "off",
+  "wt21": "off",
+  "wt245": "off",
+  "wt323": "off",
+  "wt266": "off",
+  "wt348": "off",
+  "wt347": "off",
+  "wt389": "off",
+  "wt150": "off",
+  "wt62": "off",
+  "wt126": "off",
+  "wt100": "off",
+  "wt198": "off",
+  "wt165": "off",
+  "wt384": "off",
+  "wt230": "off",
+  "wt350": "off",
+  "wt340": "off",
+  "wt149": "off",
+  "wt273": "off",
+  "wt270": "off",
+  "wt161": "off",
+  "wt211": "off",
+  "wt328": "off",
+  "wt310": "off",
+  "wt371": "off",
+  "wt300": "off",
+  "wt232": "off",
+  "wt157": "off",
+  "wt398": "off",
+  "wt162": "off",
+  "wt385": "off",
+  "wt57": "off",
+  "wt221": "off",
+  "wt223": "off",
+  "wt69": "off",
+  "wt56": "off",
+  "wt63": "off",
+  "wt175": "off",
+  "wt137": "off",
+  "wt260": "off",
+  "wt115": "off",
   "__VIEWSTATEGENERATOR": "9963D09B",
   "wtData": "",
   "wtSearchInput2": "",
-  "wt77": "",
-  "wt92": "",
-  "wt151": "",
-  "wt126": "",
-  "wtERT": "__ossli_0",
+  "wt171": "",
+  "wt258": "",
   "wtDistrito": "__ossli_0",
+  "wt152": "",
   "wtConcelho": "__ossli_0",
+  "wtERT": "__ossli_0",
   "wtNUTII": "__ossli_0",
-  "wtNUTIII": "__ossli_0",
-  "wt264": "on",
-  "wt343": "on",
-  "wt206": "on",
-  "wt223": "on",
-  "wt17": "on",
-  "wt125": "on",
-  "wt313": "on",
-  "wt176": "on",
-  "wt179": "on",
-  "wt373": "on",
-  "wt252": "on",
-  "wt127": "on",
-  "wt396": "on",
-  "wt60": "on",
-  "wt62": "on",
-  "wt269": "on",
-  "wt208": "on",
-  "-668772924": "True"
+  "wtNUTIII": "__ossli_0"
 }
 
-# Download csv
+# Export csv
 print "Downloading CSV..."
-browser.open(base_url, method='post', data=csv_download_data)
+browser.open(csv_url, method='post', data=csv_download_data)
 
 # Write CSV file
 print "Saving CSV..."
@@ -187,7 +117,6 @@ file.close()
 
 
 print "THE END :)"
-
 
 
 
