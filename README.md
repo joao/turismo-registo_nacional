@@ -7,6 +7,9 @@ Contém os seguintes items:
 - Agentes de Viagens e Turismo
 - Alojamento Local
 
+Lista de tarefas:
+- download directo do CSV nacional dos alojamentos locais (funcionalidade inexistente no Registo Nacional, mas adicionada entretanto)
+- escolher um districto e só fazer download do CSV desses alojamentos locais
 
 Fontes
 ------

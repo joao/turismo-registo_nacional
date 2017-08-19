@@ -17,6 +17,15 @@ def string_simplify(string):
   "strings to ASCII, useful for district names"
   return unidecode(string).lower().replace (" ", "_")
 
+base_url = 'https://rnt.turismodeportugal.pt/RNAL/ConsultaRegisto.aspx?Origem=CP&FiltroVisivel=True'
+csv_url = 'https://rnt.turismodeportugal.pt/RNAL/ConsultaRegisto.aspx'
+
+
+# Print information
+print "Getting all the local tourism rentals CSV in Portugal..."
+print
+
+
 # replace CSV header with an ASCII version
 def replace_csv_header(string):
   return string.replace('"Nº de registo";"Data do registo";"Nome do Alojamento";"Modalidade";"Nº Camas";"Nº Utentes";"Localização (Endereço)";"Localização (Código postal)";"Localização (Localidade)";"Localização (Freguesia)";"Localização (Concelho)";"Localização (Distrito)";"Nome do Titular da Exploração";"Contribuinte";"Contacto (Telefone)";"Contacto (Fax)";"Contacto (Telemovel)";"Contacto (Email)"','"numero_de_registo";"data_do_registo";"nome_do_alojamento";"modalidade";"numero_de_camas";"numero_utentes";"endereco";"codigo_postal";"localidade";"freguesia";"concelho";"distrito";"nome_titular_exploracao";"contribuinte";"telefone";"fax";"telemovel";"email"')
@@ -29,8 +38,9 @@ base_url = 'https://rnt.turismodeportugal.pt/RNAL/ConsultaAoRegisto.aspx'
 
 
 # Print information
-print "Getting all the local tourism properties CSVs in Portugal..."
-print "Usually takes ~9 minutes to donwload all."
+print "Getting all the local tourism properties CSVs in Portugal,"
+print "with CSV files for each disctrict and a joint national one."
+print "Usually takes ~35 minutes to download all."
 print
 
  # Create CSV directory
@@ -49,7 +59,7 @@ browser.open(base_url + '?Origem=CP&FiltroVisivel=True')
 
 # Select Districts Labels and Option IDs
 search_form = browser.get_form(id='WebForm1')
-districts_select = search_form['wt42'] # Get districts select
+districts_select = search_form['wt161'] # Get districts select, previous wt42
 district_labels = districts_select.labels
 district_labels.pop(0) # Remove first value
 district_keys = districts_select.options # Get districts ID keys
@@ -59,12 +69,12 @@ district_keys.pop(0) # Remove first value
 districts = {}
 for idx, d_label in enumerate(district_labels):
     districts[d_label] = district_keys[idx]
-
-
+# print districts
 
 # Encrypted Outsystems variable
 OSVSTATE = search_form['__OSVSTATE'].value
-#print OSVSTATE
+# print OSVSTATE
+
 
 
 # Set districts value
@@ -72,6 +82,7 @@ districts_select.value = districts['Aveiro']
 
 # Output selection
 print str(len(districts)) + " districts in Portugal."
+
 
 # Print all districts. Or not.
 #for key, value in districts.iteritems():
@@ -90,15 +101,16 @@ for key, value in sorted(districts.iteritems()):
   
   # Form data
   district_form_data = {
-    "__AJAX": "1044,746,wt10,381,42,0,0,98,392,",
+    #"__AJAX": "1044,746,wt10,381,42,0,0,98,392,",
+    "__AJAX": "1241,608,wt132,338,722,167,0,793,354,",
     "__EVENTARGUMENT": "",
-    "__EVENTTARGET": "wt10",
+    "__EVENTTARGET": "wt132",
     "__OSVSTATE": OSVSTATE,
     "__VIEWSTATE": "",
     "__VIEWSTATEGENERATOR": "5C0A81B1",
-    "wt131": "",
-    "wt32": "__ossli_0",
-    "wt42": selected_district_option_id,
+    "wt157": "",
+    "wt139": "__ossli_0",
+    "wt161": selected_district_option_id,
     "wtData1": "",
     "wtData2": "",
     "wtInput_FiltroTexto": "",
@@ -121,13 +133,13 @@ for key, value in sorted(districts.iteritems()):
   # CSV_form_data
   csv_form_data = {
     "__EVENTARGUMENT": "",
-    "__EVENTTARGET": "wt84",
+    "__EVENTTARGET": "wt106",
     "__OSVSTATE": OSVSTATE_CSV,
     "__VIEWSTATE": "",
     "__VIEWSTATEGENERATOR": "5C0A81B1",
-    "wt131": "",
-    "wt32": "__ossli_0",
-    "wt42": selected_district_option_id,
+    "wt157": "",
+    "wt139": "__ossli_0",
+    "wt161": selected_district_option_id,
     "wtData1": "",
     "wtData2": "",
     "wtInput_FiltroTexto": "",
