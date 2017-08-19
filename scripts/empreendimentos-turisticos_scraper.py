@@ -23,7 +23,7 @@ csv_url = 'https://rnt.turismodeportugal.pt/RNET/Registos.ConsultaRegisto.aspx' 
 
 
 # Print information
-print "Getting all the local tourism enterprises CSV in Portugal..."
+print "Getting all the local tourism enterprises in Portugal..."
 print
 
  # Create CSV directory
@@ -47,7 +47,6 @@ csv_download_data = {
   "__EVENTTARGET": "wt79",
   "__EVENTARGUMENT": "",
   "__OSVSTATE": OSVSTATE,
-  "__VIEWSTATE": "",
   "__VIEWSTATE": "",
   "wt307": "off",
   "wt21": "off",
@@ -111,12 +110,15 @@ browser.open(csv_url, method='post', data=csv_download_data)
 # Write CSV file
 print "Saving CSV..."
 file = open(csv_directory + "/" + csv_filename + ".csv", "wb")
-cleaned_csv = str(browser.parsed).split("<html><body><p>", 1)[1].split("</p></body></html>", 1)[0]
-file.write(cleaned_csv)
-file.close()
 
+if (str(browser.parsed)[0:2] == '<!'):
+  print "Error, please try again later."
+else:
+  cleaned_csv = str(browser.parsed).split("<html><body><p>", 1)[1].split("</p></body></html>", 1)[0]
+  file.write(cleaned_csv)
+  file.close()
 
-print "THE END :)"
+  print "THE END :)"
 
 
 

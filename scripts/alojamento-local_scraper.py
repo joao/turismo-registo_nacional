@@ -22,7 +22,7 @@ csv_url = 'https://rnt.turismodeportugal.pt/RNAL/ConsultaRegisto.aspx'
 
 
 # Print information
-print "Getting all the local tourism rentals CSV in Portugal..."
+print "Getting all the local hosts in Portugal..."
 print
 
 

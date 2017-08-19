@@ -24,7 +24,7 @@ csv_url = 'https://rnt.turismodeportugal.pt/RNAAT/ConsultaAoRegisto.aspx' # They
 
 
 # Print information
-print "Getting all the local travel and tourism agencies properties CSV in Portugal..."
+print "Getting all the local tourism animation agencies in Portugal..."
 print
 
  # Create CSV directory

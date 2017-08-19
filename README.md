@@ -8,6 +8,7 @@ Contém os seguintes items:
 - Alojamento Local
 
 Lista de tarefas:
+- Makefile
 - download directo do CSV nacional dos alojamentos locais (funcionalidade inexistente no Registo Nacional, mas adicionada entretanto)
 - escolher um districto e só fazer download do CSV desses alojamentos locais
 
