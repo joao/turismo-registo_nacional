@@ -1,0 +1,233 @@
+{
+  "name": "turismo-registo_nacional",
+  "title": "Turismo Registo Nacional",
+  "homepage": "https://github.com/centraldedados/turismo-registo_nacional/",
+  "version": "0.1.0",
+  "description": "Empreendimentos e empresas de turismo em operação",
+  "license": "PDDL-1.0",
+  "sources": [
+    {
+      "name": "Registo Nacional de Turismo",
+      "web": "https://rnt.turismodeportugal.pt/RNT/ConsultaRegisto.aspx"
+    }
+  ],
+  "resources": [
+    {
+      "name": "agentes-animacao-turistica",
+      "title": "Agentes de Animação Turistica",
+      "path": "data/agentes-animacao-turistica.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "tipologia",
+            "type": "integer",
+            "description": "Tipologia"
+          },
+          {
+            "name": "num_registo",
+            "type": "text",
+            "description": "Nº de registo"
+          },
+          {
+            "name": "data_registo",
+            "type": "date",
+            "description": "Data do Registo"
+          },
+          {
+            "name": "denominacao",
+            "type": "string",
+            "description": "Denominação"
+          },
+          {
+            "name": "num_contribuinte",
+            "type": "integer",
+            "description": "Número de Contribuinte"
+          },
+          {
+            "name": "marcas",
+            "type": "text",
+            "description": "Marcas"
+          },
+          {
+            "name": "atividades_ar_livre_natureza_aventura",
+            "type": "text",
+            "description": "Atividades ao Ar Livre/Natureza/Aventura"
+          },
+          {
+            "name": "atividades_turistico_maritima",
+            "type": "text",
+            "description": "Atividades Turistico-Maritima"
+          },
+          {
+            "name": "atividades_cultural_turismo_paisag_e_cultural",
+            "type": "text",
+            "description": "Atividades Cultural / Turismo Paisag. e Cultural"
+          },
+          {
+            "name": "atividades_reconhecidas_turismo_natureza",
+            "type": "text",
+            "description": "Atividades Reconhecidas Turismo Natureza"
+          },
+          {
+            "name": "localizacao-endereco",
+            "type": "text",
+            "description": "Localização (Endereço)"
+          },
+          {
+            "name": "localizacao-codigo_postal",
+            "type": "text",
+            "description": "Localização (Codigo Postal)"
+          },
+          {
+            "name": "localizacao-localidade",
+            "type": "text",
+            "description": "Localização (Localidade)"
+          },
+          {
+            "name": "localizacao-concelho",
+            "type": "text",
+            "description": "Localização (Concelho)"
+          },
+          {
+            "name": "localizacao-distrito",
+            "type": "text",
+            "description": "Localização (Distrito)"
+          },
+          {
+            "name": "localizacao-latitude",
+            "type": "text",
+            "description": "Localização (Latitude)"
+          },
+          {
+            "name": "localizacao-longitude",
+            "type": "text",
+            "description": "Localização (Longitude)"
+          },
+          {
+            "name": "ert_drt",
+            "type": "text",
+            "description": "ERT/DRT"
+          },
+          {
+            "name": "nut_2",
+            "type": "text",
+            "description": "NUT II"
+          },
+          {
+            "name": "nut_3",
+            "type": "text",
+            "description": "NUT III"
+          },
+          {
+            "name": "contacto-telefone",
+            "type": "integer",
+            "description": "Contacto (Telefone)"
+          },
+          {
+            "name": "contacto-fax",
+            "type": "integer",
+            "description": "Contacto (FAX)"
+          },
+          {
+            "name": "contacto-telemovel",
+            "type": "integer",
+            "description": "Contacto (Telemóvel)"
+          },
+          {
+            "name": "contacto-email",
+            "type": "text",
+            "description": "Contacto (Email)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "alojamento-local",
+      "title": "Alojamento Local",
+      "path": "data/alojamento-local.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "num_registo",
+            "type": "integer",
+            "description": "Número do Registo"
+          },
+          {
+            "name": "data_alteracao",
+            "type": "integer",
+            "description": "Data de Alteração"
+          },
+          {
+            "name": "denominacao",
+            "type": "string",
+            "description": "Denominação"
+          },
+          {
+            "name": "num_contribuinte",
+            "type": "integer",
+            "description": "Número de Contribuinte"
+          },
+          {
+            "name": "marcas",
+            "type": "string",
+            "description": "Marcas"
+          },
+          {
+            "name": "localizacao-endereco",
+            "type": "string",
+            "description": "Localização (Endereço)"
+          },
+          {
+            "name": "localizacao-codigo_postal",
+            "type": "string",
+            "description": "Localização (Código-Postal)"
+          },
+          {
+            "name": "localizacao-localidade",
+            "type": "string",
+            "description": "Localização (Localidade)"
+          },
+          {
+            "name": "localizacao-concelho",
+            "type": "string",
+            "description": "Localização (Concelho)"
+          },
+          {
+            "name": "localizacao-distrito",
+            "type": "string",
+            "description": "Localização (Distrito)"
+          },
+          {
+            "name": "ert_drt",
+            "type": "string",
+            "description": "ERT/DRT"
+          },
+          {
+            "name": "nut_2",
+            "type": "string",
+            "description": "NUT II"
+          },
+          {
+            "name": "nut_3",
+            "type": "string",
+            "description": "NUT III"
+          },
+          {
+            "name": "contacto-telef_telem",
+            "type": "integer",
+            "description": "Contacto (Telef/Telem)"
+          },
+          {
+            "name": "contacto-email",
+            "type": "string",
+            "description": "Contacto (Email)"
+          }
+        ]
+      }
+    }
+  ]
+}
